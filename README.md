@@ -8,7 +8,6 @@
 
 - **Полноэкранный режим Zen (`Alt+Shift+Z`)**: скрывает интерфейс браузера для максимальной концентрации на контенте. Выход осуществляется повторным нажатием комбинации или клавишей `Escape`.
 - **Всплывающая панель управления**: плавно появляется только тогда, когда курсор мыши подводится к верхнему краю экрана.
-- **Изоляция стилей (Shadow DOM)**: элементы управления изолированы от стилей просматриваемых сайтов — верстка страниц никогда не ломает вид панели.
 - **Управление вкладками**:
   - Быстрое переключение между открытыми вкладками с отображением фавиконов сайтов;
   - Закрытие вкладок кнопкой `✕` прямо из панели;
@@ -45,7 +44,6 @@ A calm, distraction-free browser extension for Chromium-based browsers (Chrome, 
 
 - **Zen Fullscreen Mode (`Alt+Shift+Z`)**: Hides browser clutter and window frames for deep focus. Exit anytime with `Alt+Shift+Z` or `Escape`.
 - **On-Demand Floating Panel**: Smoothly reveals browser controls when the cursor touches the top edge.
-- **Shadow DOM Isolation**: The toolbar is completely isolated from web page CSS resets and global styles.
 - **Tab Management**:
   - Fast switcher across all open tabs displaying real website favicons;
   - Close tabs with a dedicated `✕` button directly from the toolbar;
@@ -68,4 +66,3 @@ A calm, distraction-free browser extension for Chromium-based browsers (Chrome, 
 2. Enable **Developer mode**.
 3. Click **Load unpacked** and choose this `zenmode` directory.
 4. Open any webpage and press `Alt+Shift+Z` or click the ZenMode icon in the toolbar.
-
