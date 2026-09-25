@@ -1,0 +1,99 @@
+:host {
+  all: initial;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --zen-ink: #f4f1e8;
+  --zen-muted: #9aa099;
+  --zen-panel: rgba(20, 24, 23, 0.94);
+  --zen-line: rgba(244, 241, 232, 0.12);
+  --zen-accent: #d9f07a;
+  --zen-accent-hover: #e8f99e;
+  --zen-danger: #ff7b72;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.zenmode-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.zenmode-container.zenmode-enabled {
+  display: block;
+}
+
+.zenmode-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  pointer-events: auto;
+}
+
+.zenmode-panel {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: min(840px, calc(100vw - 28px));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
+  transform: translate(-50%, -140%);
+  opacity: 0;
+  pointer-events: none;
+  color: var(--zen-ink);
+  background: var(--zen-panel);
+  border: 1px solid var(--zen-line);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: transform .28s cubic-bezier(.16, 1, .3, 1), opacity .2s ease;
+}
+
+.zenmode-container.zenmode-visible .zenmode-panel,
+.zenmode-panel:hover {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.zenmode-brand { display: flex; align-items: center; gap: 7px; padding: 0 8px 0 2px; font-size: 13px; font-weight: 500; letter-spacing: .02em; }
+.zenmode-mark { display: grid; place-items: center; width: 24px; height: 24px; color: #1a211e; background: var(--zen-accent); border-radius: 8px; font: 700 15px Georgia, serif; }
+.zenmode-tab-strip { display: flex; align-items: center; gap: 5px; min-width: 0; height: 32px; }
+.zenmode-tab-list { display: flex; align-items: stretch; gap: 4px; min-width: 0; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.zenmode-tab-list::-webkit-scrollbar { display: none; }
+.zenmode-tab-item { display: inline-flex; align-items: center; gap: 6px; flex: 0 1 170px; min-width: 70px; max-width: 190px; height: 30px; padding: 0 8px; overflow: hidden; border: 0; border-radius: 8px; color: var(--zen-muted); background: rgba(255, 255, 255, 0.04); cursor: pointer; text-align: left; font-size: 12px; line-height: 1; user-select: none; transition: background .12s, color .12s; }
+.zenmode-tab-item:hover { color: var(--zen-ink); background: rgba(255, 255, 255, 0.09); }
+.zenmode-tab-item.is-active { color: var(--zen-ink); background: rgba(255, 255, 255, 0.15); box-shadow: inset 0 -2px 0 var(--zen-accent); }
+.zenmode-tab-favicon { width: 14px; height: 14px; flex-shrink: 0; border-radius: 3px; object-fit: contain; }
+.zenmode-tab-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--zen-muted); }
+.zenmode-tab-item.is-active .zenmode-tab-dot { background: var(--zen-accent); }
+.zenmode-tab-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.zenmode-tab-close { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; flex-shrink: 0; border: 0; border-radius: 4px; background: transparent; color: var(--zen-muted); opacity: 0.6; font-size: 11px; cursor: pointer; padding: 0; margin-left: 2px; line-height: 1; transition: opacity .12s, background .12s, color .12s; }
+.zenmode-tab-close:hover { opacity: 1; color: #fff; background: rgba(255, 255, 255, 0.2); }
+.zenmode-new-tab { flex: 0 0 28px; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; color: var(--zen-muted); background: transparent; cursor: pointer; font-size: 17px; line-height: 1; transition: background .12s, color .12s; }
+.zenmode-new-tab:hover { color: var(--zen-ink); background: rgba(255, 255, 255, 0.1); }
+.zenmode-toolbar { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.zenmode-divider { width: 1px; height: 22px; margin: 0 3px; background: var(--zen-line); }
+.zenmode-button { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 8px; color: var(--zen-muted); background: transparent; cursor: pointer; font-size: 16px; padding: 0; line-height: 1; transition: color .15s ease, background .15s ease; }
+.zenmode-button:hover { color: var(--zen-ink); background: rgba(255, 255, 255, 0.08); }
+.zenmode-button.is-active { color: var(--zen-accent); }
+.zenmode-exit:hover { color: var(--zen-danger); background: rgba(255, 123, 114, 0.12); }
+.zenmode-address-wrap { display: flex; align-items: center; flex: 1; min-width: 80px; height: 34px; margin: 0 4px; padding: 0 10px; border: 1px solid var(--zen-line); border-radius: 10px; background: rgba(0, 0, 0, 0.28); transition: border-color .15s ease, background .15s ease; }
+.zenmode-address-wrap:focus-within { border-color: rgba(217, 240, 122, 0.4); background: rgba(0, 0, 0, 0.42); }
+.zenmode-lock { color: var(--zen-accent); font-size: 9px; margin-right: 8px; }
+.zenmode-address { width: 100%; min-width: 0; color: var(--zen-ink); background: transparent; border: 0; outline: 0; font-size: 13px; font-family: inherit; text-overflow: ellipsis; }
+.zenmode-address::selection { color: #1a211e; background: var(--zen-accent); }
+@media (max-width: 600px) { .zenmode-brand span:last-child, .zenmode-divider:first-of-type { display: none; } .zenmode-panel { top: 8px; border-radius: 14px; } }

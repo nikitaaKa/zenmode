@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "ZenMode",
+  "version": "1.1.0",
+  "description": "A quiet browser mode with an on-demand navigation bar and AI workspace.",
+  "permissions": [
+    "tabs",
+    "windows",
+    "bookmarks",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Toggle ZenMode",
+    "default_icon": "icon-gray.svg"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "commands": {
+    "toggle-zen-mode": {
+      "suggested_key": {
+        "default": "Alt+Shift+Z"
+      },
+      "description": "Toggle ZenMode for the active tab"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": false,
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icon-gray.svg",
+    "48": "icon-gray.svg",
+    "128": "icon-gray.svg"
+  }
+}
