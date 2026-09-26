@@ -28,7 +28,7 @@
 
 1. Откройте страницу `chrome://extensions` или `edge://extensions`.
 2. Включите **Режим разработчика** (Developer mode).
-3. Нажмите **Загрузить распакованное расширение** (Load unpacked) и укажите папку `zenmode`.
+3. Нажмите **Загрузить распакованное расширение** (Load unpacked) и укажите папку `zenmode-main`.
 4. Откройте любую страницу и нажмите `Alt+Shift+Z` или кликните по иконке расширения на панели инструментов.
 
 ---
@@ -64,5 +64,5 @@ A calm, distraction-free browser extension for Chromium-based browsers (Chrome, 
 
 1. Navigate to `chrome://extensions` or `edge://extensions`.
 2. Enable **Developer mode**.
-3. Click **Load unpacked** and choose this `zenmode` directory.
+3. Click **Load unpacked** and choose this `zenmode-main` directory.
 4. Open any webpage and press `Alt+Shift+Z` or click the ZenMode icon in the toolbar.
